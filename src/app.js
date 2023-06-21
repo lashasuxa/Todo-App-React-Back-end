@@ -21,7 +21,6 @@ app.get("/", (req, res) => {
   return res.status(200).json({ message: "app works fine!" });
 });
 
-app.get("/api/alert", json({ message: "allert message" }));
 app.get("/api/projects", getAllTodo);
 app.get("/api/projects/web", getWebTodos);
 
