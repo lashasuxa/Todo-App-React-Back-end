@@ -5,10 +5,7 @@ const todoSchema = new Schema({
     type: Schema.Types.String,
     required: true,
   },
-  id: {
-    type: Schema.Types.String,
-    required: true,
-  },
+
   status: {
     type: Schema.Types.String,
     required: true,

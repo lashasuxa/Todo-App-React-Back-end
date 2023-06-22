@@ -2,9 +2,10 @@ import express from "express";
 import connect from "./database/mongo.js";
 import dotenv from "dotenv";
 import {
-  getAllTodo,
-  getWebTodos,
+  getAllTodos,
   addTodo,
+  deleteTodo,
+  updateTodo,
 } from "./controllers/project-controller.js";
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -21,9 +22,11 @@ app.get("/", (req, res) => {
   return res.status(200).json({ message: "app works fine!" });
 });
 
-app.get("/api/projects", getAllTodo);
-app.get("/api/projects/web", getWebTodos);
+app.get("/api/projects", getAllTodos);
 
+app.post("/api/todos", addTodo);
+app.delete("/api/todos/:id", deleteTodo);
 app.post("/api/projects", addTodo);
+app.put("/api/todos/:id", updateTodo);
 
 app.listen(3000);
