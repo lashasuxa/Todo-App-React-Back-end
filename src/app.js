@@ -22,9 +22,9 @@ app.get("/", (req, res) => {
   return res.status(200).json({ message: "app works fine!" });
 });
 
-app.get("/api/alltodos", getAllTodos);
-app.post("/api/todos", addTodo);
-app.delete("/api/todos/:id", deleteTodo);
-app.put("/api/todos/:id", updateTodo);
+app.get("/api/todos", getAllTodos); // get all todos
+app.post("/api/todos", addTodo); // create a new todo
+app.delete("/api/todos/:id", deleteTodo); // delete a specific todo by id
+app.put("/api/todos/:id", updateTodo); // update a specific todo by id
 
 app.listen(3000);

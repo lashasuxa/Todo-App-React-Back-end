@@ -14,8 +14,15 @@ export const addTodo = async (req, res) => {
 
 export const deleteTodo = async (req, res) => {
   const { id } = req.params;
-  await Todo.findOneAndRemove({ id });
-  return res.status(200).json({ message: "Todo deleted successfully." });
+  const deletedTodo = await Todo.findOneAndRemove({ id });
+
+  if (deletedTodo) {
+    return res.status(200).json({ message: "Todo deleted successfully." });
+  } else {
+    return res
+      .status(404)
+      .json({ message: "No Todo found with the given id." });
+  }
 };
 
 export const updateTodo = async (req, res) => {
