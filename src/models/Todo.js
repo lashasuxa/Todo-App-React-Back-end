@@ -10,6 +10,10 @@ const todoSchema = new Schema({
     type: Schema.Types.String,
     required: true,
   },
+  id: {
+    type: Schema.Types.String,
+    required: true,
+  },
 });
 
 const Todo = model("Todo", todoSchema);

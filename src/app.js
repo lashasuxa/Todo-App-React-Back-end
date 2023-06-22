@@ -22,11 +22,9 @@ app.get("/", (req, res) => {
   return res.status(200).json({ message: "app works fine!" });
 });
 
-app.get("/api/projects", getAllTodos);
-
+app.get("/api/alltodos", getAllTodos);
 app.post("/api/todos", addTodo);
 app.delete("/api/todos/:id", deleteTodo);
-app.post("/api/projects", addTodo);
 app.put("/api/todos/:id", updateTodo);
 
 app.listen(3000);
