@@ -1,4 +1,5 @@
 import Todo from "../models/Todo.js";
+import { v4 as uuidv4 } from "uuid";
 
 export const getAllTodos = async (req, res) => {
   const data = await Todo.find();
@@ -6,7 +7,8 @@ export const getAllTodos = async (req, res) => {
 };
 
 export const addTodo = async (req, res) => {
-  const { id, todo, status } = req.body;
+  const { todo, status } = req.body;
+  const id = uuidv4(); // Generate a new UUID for the todo.
   const newTodo = new Todo({ id, todo, status });
   await newTodo.save();
   return res.status(200).json(newTodo);
